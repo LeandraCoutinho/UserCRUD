@@ -34,11 +34,19 @@ class UserService{
     }
 
     async updateUser(id: number, name: string, email: string) {
-        const existingUser = await prisma.user.findUnique({
-            where: {email},
+        const user = await prisma.user.findUnique({
+            where: { id },
         });
 
-        if (existingUser && existingUser.id !== id){
+        if (!user){
+            throw new Error("User not found.");
+        }
+
+        const userEmailExists = await prisma.user.findFirst({
+            where: { email }
+        });
+
+        if (userEmailExists && userEmailExists.id !== id){
             throw new Error("Email already exists.");
         }
 
