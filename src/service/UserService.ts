@@ -43,10 +43,10 @@ class UserService{
         }
 
         const userEmailExists = await prisma.user.findFirst({
-            where: { email }
+            where: { email,  NOT: { id } }
         });
 
-        if (userEmailExists && userEmailExists.id !== id){
+        if (userEmailExists){
             throw new Error("Email already exists.");
         }
 

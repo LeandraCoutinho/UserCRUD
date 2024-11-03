@@ -1,0 +1,2 @@
+# Connection URL for the PostgreSQL database
+DATABASE_URL="postgresql://postgres:YOUR_PASSWORD@localhost:5432/YOUR_DATABASE?schema=public"

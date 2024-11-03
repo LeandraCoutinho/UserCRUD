@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "tsx src/server.ts",
-    "start": "nodemon src/server.ts"
+    "dev": "tsx src/server.ts"
   },
   "keywords": [],
   "author": "",
