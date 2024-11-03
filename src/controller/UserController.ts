@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import UserService from '../service/UserService';
 
-export const fetchUsers = async (response: Response): Promise<Response> => {
+export const fetchUsers = async (request: Request, response: Response): Promise<Response> => {
   try {
     const users = await UserService.getAllUsers();
     return response.status(200).json({ status: 200, data: users });
